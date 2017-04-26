@@ -38,6 +38,7 @@
 		C99158DE1EB0DFF600967B11 /* NSData+FHExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+FHExtend.m"; sourceTree = "<group>"; };
 		C99158E01EB0E22900967B11 /* NSArray+FHExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+FHExtend.h"; sourceTree = "<group>"; };
 		C99158E11EB0E22900967B11 /* NSArray+FHExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FHExtend.m"; sourceTree = "<group>"; };
+		C99158E31EB0EFF000967B11 /* FHCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHCategory.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +104,7 @@
 				C99158DE1EB0DFF600967B11 /* NSData+FHExtend.m */,
 				C99158E01EB0E22900967B11 /* NSArray+FHExtend.h */,
 				C99158E11EB0E22900967B11 /* NSArray+FHExtend.m */,
+				C99158E31EB0EFF000967B11 /* FHCategory.h */,
 			);
 			path = FHCategory;
 			sourceTree = "<group>";
@@ -344,6 +346,7 @@
 				C99158D51EB0DB0300967B11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

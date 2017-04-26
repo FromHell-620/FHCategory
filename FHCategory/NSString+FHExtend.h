@@ -1,0 +1,27 @@
+//
+//  NSString+FHExtend.h
+//  FHCategroyDemo
+//
+//  Created by 李浩 on 2017/4/26.
+//  Copyright © 2017年 GodL. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface NSString (FHExtend)
+
++ (instancetype)fh_stringForUUID;
+
+- (instancetype)fh_stringDeleteSpace;
+
+- (instancetype)fh_stringDeleteString:(NSString*)str;
+
+- (NSData*)fh_dataValue;
+
+- (NSURL*)fh_urlValue;
+
+- (NSRange)fh_range;
+
+- (id)fh_json;
+
+@end
