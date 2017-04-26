@@ -26,4 +26,16 @@
 
 - (void)fh_times:(NSInteger)times block:(void (^)(id obj))block;
 
+- (void)fh_timeMatch:(BOOL (^)(id obj))match if:(BOOL(^)())ifx;
+
+- (void)fh_timeMatch:(BOOL (^)(id obj))match else:(BOOL(^)())elsex;
+
+- (void)fh_timeMatch:(BOOL (^)(id obj))match if:(BOOL(^)())ifx else:(BOOL(^)())elsex;
+
+- (void)fh_timesMatch:(BOOL (^)(id obj))match if:(BOOL(^)(NSInteger idx,id object))ifx;
+
+- (void)fh_timesMatch:(BOOL (^)(id obj))match else:(BOOL(^)(NSInteger idx,id object))elsex;
+
+- (void)fh_timesMatch:(BOOL (^)(id obj))match if:(BOOL(^)(NSInteger idx,id object))ifx else:(BOOL(^)(NSInteger idx,id object))elsex;
+
 @end

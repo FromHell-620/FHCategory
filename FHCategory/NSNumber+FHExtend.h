@@ -12,6 +12,8 @@
 
 + (NSNumber*)fh_randomNumber:(NSInteger)max;
 
+- (void)fh_time:(dispatch_block_t)time;
+
 - (void)fh_times:(void (^)(NSInteger idx))times;
 
 @end
