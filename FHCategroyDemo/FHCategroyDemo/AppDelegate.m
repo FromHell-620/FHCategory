@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "FHCategory.h"
 @interface AppDelegate ()
 
 @end

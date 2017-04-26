@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "FHCategory"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "category."
   s.homepage     = "https://github.com/FromHell-620/FHCategory"
   s.license      = "MIT"
@@ -9,7 +9,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "6.0"
   s.source       = { :git => "https://github.com/FromHell-620/FHCategory.git", :tag => s.version.to_s }
   s.source_files  = "FHCategory/*.{h,m}"
-  s.public_header_files = 'FHCategory/FHCategory.h'
   s.framework  = "UIKit"
   s.requires_arc = true
 end
