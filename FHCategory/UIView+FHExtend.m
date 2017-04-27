@@ -1,16 +1,16 @@
 //
-//  UIView+CNKit.m
-//  SalesAssistantApp
+//  UIView+FHExtend.m
+//  FHCategroyDemo
 //
-//  Created by xyt on 15/1/13.
-//  Copyright (c) 2015年 好居. All rights reserved.
+//  Created by xyt on 2017/4/27.
+//  Copyright © 2017年 GodL. All rights reserved.
 //
 
-#import "UIView+CNKit.h"
+#import "UIView+FHExtend.h"
 #import <QuartzCore/QuartzCore.h>
 #import <objc/runtime.h>
 
-@implementation UIView (CNKit)
+@implementation UIView (FHExtend)
 @dynamic info_Dict,description;
 
 static const void *IndieBandNameKey = &IndieBandNameKey;
@@ -115,9 +115,9 @@ static const void *DescriptionKey = &DescriptionKey;
 }
 
 - (void)setCenterX:(CGFloat)centerX {
-
-  self.center = CGPointMake(centerX,self.centerY);
-
+    
+    self.center = CGPointMake(centerX,self.centerY);
+    
 }
 
 - (CGFloat)centerY {
@@ -125,7 +125,7 @@ static const void *DescriptionKey = &DescriptionKey;
 }
 
 - (void)setCenterY:(CGFloat)centerY {
-  self.center = CGPointMake(self.centerX, centerY);
+    self.center = CGPointMake(self.centerX, centerY);
 }
 #pragma mark 点击事件
 - (void)addActionWithTarget:(id)target action:(SEL)selector {

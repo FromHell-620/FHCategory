@@ -1,14 +1,15 @@
 //
-//  UIView+CNKit.h
-//  SalesAssistantApp
+//  UIView+FHExtend.h
+//  FHCategroyDemo
 //
-//  Created by xyt on 15/1/13.
-//  Copyright (c) 2015年 好居. All rights reserved.
+//  Created by xyt on 2017/4/27.
+//  Copyright © 2017年 GodL. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (CNKit)
+@interface UIView (FHExtend)
+
 
 /**
  *  获取UIImage
@@ -50,8 +51,8 @@
 - (void)addActionWithTarget:(id)target action:(SEL)selector;
 
 /* @property如果写在分类里面就不会生成成员属性,只会生成get,set方法
-*  快速设置控件的frame
-*/
+ *  快速设置控件的frame
+ */
 @property (nonatomic, assign) CGFloat width;
 @property (nonatomic, assign) CGFloat height;
 @property (nonatomic, assign) CGFloat x;
@@ -67,5 +68,7 @@
 
 
 @property (nonatomic, copy) NSString *description;
+
+@end
 
 @end
