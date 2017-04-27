@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73A8E5A81EB1C4CE00DBF791 /* UIView+FHExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A8E5A71EB1C4CE00DBF791 /* UIView+FHExtend.m */; };
 		C99158C11EB0DB0300967B11 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C99158C01EB0DB0300967B11 /* main.m */; };
 		C99158C41EB0DB0300967B11 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C99158C31EB0DB0300967B11 /* AppDelegate.m */; };
 		C99158C71EB0DB0300967B11 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C99158C61EB0DB0300967B11 /* ViewController.m */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		73A8E5A61EB1C4CE00DBF791 /* UIView+FHExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FHExtend.h"; sourceTree = "<group>"; };
+		73A8E5A71EB1C4CE00DBF791 /* UIView+FHExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FHExtend.m"; sourceTree = "<group>"; };
 		C99158BC1EB0DB0300967B11 /* FHCategroyDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FHCategroyDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99158C01EB0DB0300967B11 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C99158C21EB0DB0300967B11 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -104,6 +107,8 @@
 				C99158DE1EB0DFF600967B11 /* NSData+FHExtend.m */,
 				C99158E01EB0E22900967B11 /* NSArray+FHExtend.h */,
 				C99158E11EB0E22900967B11 /* NSArray+FHExtend.m */,
+				73A8E5A61EB1C4CE00DBF791 /* UIView+FHExtend.h */,
+				73A8E5A71EB1C4CE00DBF791 /* UIView+FHExtend.m */,
 				C99158E31EB0EFF000967B11 /* FHCategory.h */,
 			);
 			path = FHCategory;
@@ -187,6 +192,7 @@
 				C99158C41EB0DB0300967B11 /* AppDelegate.m in Sources */,
 				C99158DC1EB0DD0F00967B11 /* NSString+FHExtend.m in Sources */,
 				C99158DF1EB0DFF600967B11 /* NSData+FHExtend.m in Sources */,
+				73A8E5A81EB1C4CE00DBF791 /* UIView+FHExtend.m in Sources */,
 				C99158C11EB0DB0300967B11 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
