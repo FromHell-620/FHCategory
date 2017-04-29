@@ -18,6 +18,7 @@
 		C99158DC1EB0DD0F00967B11 /* NSString+FHExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = C99158DB1EB0DD0F00967B11 /* NSString+FHExtend.m */; };
 		C99158DF1EB0DFF600967B11 /* NSData+FHExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = C99158DE1EB0DFF600967B11 /* NSData+FHExtend.m */; };
 		C99158E21EB0E22900967B11 /* NSArray+FHExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = C99158E11EB0E22900967B11 /* NSArray+FHExtend.m */; };
+		C99158E61EB502B700967B11 /* NSDictionary+FHExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = C99158E51EB502B700967B11 /* NSDictionary+FHExtend.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,8 @@
 		C99158E01EB0E22900967B11 /* NSArray+FHExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+FHExtend.h"; sourceTree = "<group>"; };
 		C99158E11EB0E22900967B11 /* NSArray+FHExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FHExtend.m"; sourceTree = "<group>"; };
 		C99158E31EB0EFF000967B11 /* FHCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHCategory.h; sourceTree = "<group>"; };
+		C99158E41EB502B700967B11 /* NSDictionary+FHExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+FHExtend.h"; sourceTree = "<group>"; };
+		C99158E51EB502B700967B11 /* NSDictionary+FHExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+FHExtend.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,8 @@
 				C99158DE1EB0DFF600967B11 /* NSData+FHExtend.m */,
 				C99158E01EB0E22900967B11 /* NSArray+FHExtend.h */,
 				C99158E11EB0E22900967B11 /* NSArray+FHExtend.m */,
+				C99158E41EB502B700967B11 /* NSDictionary+FHExtend.h */,
+				C99158E51EB502B700967B11 /* NSDictionary+FHExtend.m */,
 				73A8E5A61EB1C4CE00DBF791 /* UIView+FHExtend.h */,
 				73A8E5A71EB1C4CE00DBF791 /* UIView+FHExtend.m */,
 				C99158E31EB0EFF000967B11 /* FHCategory.h */,
@@ -186,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C99158E61EB502B700967B11 /* NSDictionary+FHExtend.m in Sources */,
 				C99158E21EB0E22900967B11 /* NSArray+FHExtend.m in Sources */,
 				C99158C71EB0DB0300967B11 /* ViewController.m in Sources */,
 				C99158D91EB0DBA000967B11 /* NSNumber+FHExtend.m in Sources */,

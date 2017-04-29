@@ -54,49 +54,82 @@
     return new.copy;
 }
 
-- (void)fh_times:(NSInteger)times block:(void (^)(id obj))block {
+- (void)fh_times:(NSInteger)times
+           block:(void (^)(id obj))block {
     [@(times) fh_times:^(NSInteger idx) {
         if (idx < self.count) block(self[idx]);
     }];
 }
 
-- (void)fh_timeMatch:(BOOL (^)(id obj))match if:(BOOL(^)())ifx {
-    [self fh_timeMatch:match if:ifx else:^BOOL{
+- (void)fh_timeMatch:(BOOL (^)(id obj))match
+                  if:(BOOL(^)())ifx {
+    [self fh_timeMatch:match
+                    if:ifx
+                  else:^BOOL{
         return NO;
     }];
 }
 
-- (void)fh_timeMatch:(BOOL (^)(id obj))match else:(BOOL(^)())elsex {
-    [self fh_timeMatch:match if:^BOOL{
+- (void)fh_timeMatch:(BOOL (^)(id obj))match
+                else:(BOOL(^)())elsex {
+    [self fh_timeMatch:match
+                    if:^BOOL{
         return NO;
-    } else:elsex];
+    }
+                  else:elsex];
 }
 
-- (void)fh_timeMatch:(BOOL (^)(id obj))match if:(BOOL(^)())ifx else:(BOOL(^)())elsex {
-    [self fh_timesMatch:match if:^BOOL(NSInteger idx, id object) {
+- (void)fh_timeMatch:(BOOL (^)(id obj))match
+                  if:(BOOL(^)())ifx
+                else:(BOOL(^)())elsex {
+    [self fh_timesMatch:match
+                     if:^BOOL(NSInteger idx, id object) {
         return ifx();
-    } else:^BOOL(NSInteger idx, id object) {
+    }
+                   else:^BOOL(NSInteger idx, id object) {
         return elsex();
     }];
 }
 
-- (void)fh_timesMatch:(BOOL (^)(id obj))match if:(BOOL(^)(NSInteger idx,id object))ifx {
-    [self fh_timesMatch:match if:ifx else:^BOOL(NSInteger idx, id object) {
+- (void)fh_timesMatch:(BOOL (^)(id obj))match
+                   if:(BOOL(^)(NSInteger idx,id object))ifx {
+    [self fh_timesMatch:match
+                     if:ifx
+                   else:^BOOL(NSInteger idx, id object) {
         return NO;
     }];
 }
 
-- (void)fh_timesMatch:(BOOL (^)(id obj))match else:(BOOL(^)(NSInteger idx,id object))elsex {
-    [self fh_timesMatch:match if:^BOOL(NSInteger idx, id object) {
+- (void)fh_timesMatch:(BOOL (^)(id obj))match
+                 else:(BOOL(^)(NSInteger idx,id object))elsex {
+    [self fh_timesMatch:match
+                     if:^BOOL(NSInteger idx, id object) {
         return NO;
-    } else:elsex];
+    }
+                   else:elsex];
 }
 
-- (void)fh_timesMatch:(BOOL (^)(id obj))match if:(BOOL(^)(NSInteger idx,id object))ifx else:(BOOL(^)(NSInteger idx,id object))elsex {
+- (void)fh_timesMatch:(BOOL (^)(id obj))match
+                   if:(BOOL(^)(NSInteger idx,id object))ifx
+                 else:(BOOL(^)(NSInteger idx,id object))elsex {
     NSParameterAssert(match);
     [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         *stop = match(obj)?ifx(idx,obj):elsex(idx,obj);
     }];
+}
+
+@end
+
+@implementation NSMutableArray (FHExtend)
+
+- (id)fh_pop {
+    id value = self.lastObject;
+    [self removeLastObject];
+    return value;
+}
+
+- (void)fh_prependObject:(id)anObject {
+    !anObject?:[self insertObject:anObject atIndex:0];
 }
 
 @end
