@@ -13,5 +13,7 @@
 #import "NSString+FHExtend.h"
 #import "NSData+FHExtend.h"
 #import "NSArray+FHExtend.h"
+#import "NSDictionary+FHExtend.h"
+#import "UIView+FHExtend.h"
 
 #endif /* FHCategory_h */
