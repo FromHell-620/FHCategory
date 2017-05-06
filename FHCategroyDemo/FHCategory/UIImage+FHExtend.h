@@ -18,4 +18,14 @@
 
 - (NSData*)fh_zipToDataWithQuality:(CGFloat)quality;
 
+- (UIImage*)fh_imageWithTintColor:(UIColor*)tintColor;
+
+- (UIImage*)fh_imageWithTintColor:(UIColor *)tintColor blendMode:(CGBlendMode)blendMode;
+
+- (UIImage*)fh_imageByResize:(CGSize)size;
+
+- (UIImage*)fh_imageByCropSize:(CGSize)size;
+
+- (UIImage*)fh_imageByCropRect:(CGRect)rect;
+
 @end
