@@ -10,64 +10,29 @@
 
 @interface UIView (FHExtend)
 
+#pragma mark- Property
+@property (nonatomic,assign,setter=fh_setX:,getter=fh_X) CGFloat fh_x;
 
-/**
- *  获取UIImage
- *
- *  @return UIImage
- */
--(UIImage *)getImage;
+@property (nonatomic,assign,setter=fh_setY:,getter=fh_Y) CGFloat fh_y;
 
-/**
- *  动画切换效果  push方式
- *
- *  @param direction 动画切换方向 kCATransitionFromRight、kCATransitionFromLeft、kCATransitionFromTop、kCATransitionFromBottom
- */
--(void)switchContentViewWithAnimation:(NSString *)direction;
+@property (nonatomic,assign,setter=fh_setWidth:,getter=fh_Width) CGFloat fh_width;
 
-/**
- *  动画切换效果
- *
- *  @param direction      动画切换方向 kCATransitionFromRight、kCATransitionFromLeft、kCATransitionFromTop、kCATransitionFromBottom
- *  @param transitionType 动画切换方式 kCATransitionFade、kCATransitionMoveIn、kCATransitionPush、kCATransitionReveal
- */
--(void)switchContentViewWithAnimation:(NSString *)direction type:(NSString *)transitionType;
+@property (nonatomic,assign,setter=fh_setHeight:,getter=fh_Height) CGFloat fh_height;
 
-/**
- *  动画切换效果
- *
- *  @param direction      动画切换方向 kCATransitionFromRight、kCATransitionFromLeft、kCATransitionFromTop、kCATransitionFromBottom
- *  @param transitionType 动画切换方式 kCATransitionFade、kCATransitionMoveIn、kCATransitionPush、kCATransitionReveal
- *  @param duration       时长
- */
--(void)switchContentViewWithAnimation:(NSString *)direction type:(NSString *)transitionType duration:(float)duration;
+@property (nonatomic,assign,setter=fh_setCenterX:,getter=fh_CenterX) CGFloat fh_centerX;
 
-/**
- *  添加点击事件
- *
- *  @param target   目标
- *  @param selector 事件
- */
-- (void)addActionWithTarget:(id)target action:(SEL)selector;
+@property (nonatomic,assign,setter=fh_setCenterY:,getter=fh_CenterY) CGFloat fh_centerY;
 
-/* @property如果写在分类里面就不会生成成员属性,只会生成get,set方法
- *  快速设置控件的frame
- */
-@property (nonatomic, assign) CGFloat width;
-@property (nonatomic, assign) CGFloat height;
-@property (nonatomic, assign) CGFloat x;
-@property (nonatomic, assign) CGFloat y;
-@property (nonatomic, assign) CGFloat bottom;
-@property (nonatomic,assign)  CGFloat centerX;
-@property (nonatomic,assign)  CGFloat centerY;
+@property (nonatomic,assign,setter=fh_setCornerRadius:,getter=fh_CornerRadius) CGFloat fh_cornerRadius;
 
-/**
- *  详细属性
- */
-@property (nonatomic, copy) NSDictionary *info_Dict;
+@property (nonatomic,strong,setter=fh_setImage:,getter=fh_Image) UIImage* fh_image;
 
+#pragma marl- Method
+- (void)fh_removeAllSubviews;
 
-@property (nonatomic, copy) NSString *description;
+- (UIViewController*)fh_controller;
+
+- (UIImage*)fh_imageify;
 
 @end
 
