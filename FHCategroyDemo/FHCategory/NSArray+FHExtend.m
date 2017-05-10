@@ -174,6 +174,7 @@
         *filter?[self replaceObjectAtIndex:i withObject:newObj]:[self removeObjectAtIndex:i];
         i--;
     }
+    free(filter);
 }
 
 @end
