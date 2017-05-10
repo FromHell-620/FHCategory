@@ -47,6 +47,10 @@
                    if:(BOOL(^)(NSInteger idx,id object))ifx
                  else:(BOOL(^)(NSInteger idx,id object))elsex;
 
+- (NSArray*)fh_map:(id(^)(id obj))block;
+
+- (NSArray*)fh_filterMap:(id(^)(id obj,BOOL* filter))block;
+
 @end
 
 @interface NSMutableArray (FHExtend)

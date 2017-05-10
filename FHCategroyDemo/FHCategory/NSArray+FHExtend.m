@@ -118,6 +118,31 @@
     }];
 }
 
+- (NSArray*)fh_map:(id (^)(id))block {
+    NSCParameterAssert(block);
+    NSMutableArray* new = [NSMutableArray arrayWithCapacity:self.count];
+    [self fh_enum:^(NSInteger idx, id object) {
+        [new addObject:block(object)];
+    }];
+    return [new copy];
+    return [self fh_filterMap:^id(id obj, BOOL *filter) {
+        return block(obj);
+    }];
+}
+
+- (NSArray*)fh_filterMap:(id(^)(id obj,BOOL* filter))block {
+    NSCParameterAssert(block);
+    NSMutableArray* new = [NSMutableArray array];
+    BOOL* filter = malloc(sizeof(BOOL));
+    [self fh_enum:^(NSInteger idx, id object) {
+        id newObj = block(object,filter);
+        *filter?:[new addObject:newObj];
+        *filter = NO;
+    }];
+    free(filter);
+    return [new copy];
+}
+
 @end
 
 @implementation NSMutableArray (FHExtend)

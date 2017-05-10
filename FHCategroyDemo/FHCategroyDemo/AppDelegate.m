@@ -16,6 +16,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSArray* a = @[@"1",@"2",@"3"];
+    NSLog(@"%@",[a fh_filterMap:^id(id obj, BOOL *filter) {
+        if ([obj isEqualToString:@"2"]) {
+            *filter = YES;
+        }
+        return obj;
+    }]);
     // Override point for customization after application launch.
     return YES;
 }
