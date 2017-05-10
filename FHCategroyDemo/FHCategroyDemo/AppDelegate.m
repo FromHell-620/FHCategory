@@ -16,13 +16,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    NSArray* a = @[@"1",@"2",@"3"];
-    NSLog(@"%@",[a fh_filterMap:^id(id obj, BOOL *filter) {
-        if ([obj isEqualToString:@"2"]) {
-            *filter = YES;
-        }
-        return obj;
-    }]);
+    NSMutableArray* a = [@[@"1",@"2",@"3"] mutableCopy];
+    [a fh_filter:^BOOL(id obj) {
+        return [obj isEqualToString:@"1"];
+    }];
+    NSLog(@"%@",a);
     // Override point for customization after application launch.
     return YES;
 }

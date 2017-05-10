@@ -59,4 +59,11 @@
 
 - (void)fh_prependObject:(id)anObject;
 
+- (void)fh_filter:(BOOL(^)(id obj))block;
+
+- (void)fh_map:(id(^)(id obj))block;
+
+- (void)fh_filterMap:(id(^)(id obj,BOOL* filter))block;
+
+
 @end

@@ -46,12 +46,9 @@
 }
 
 - (NSArray*)fh_filter:(BOOL(^)(id obj))block {
-    NSParameterAssert(block);
     NSMutableArray* new = self.fh_mutableValue;
-    [self fh_enum:^(NSInteger idx, id object) {
-        if (block(object)) [new removeObjectAtIndex:idx];
-    }];
-    return new.copy;
+    [new fh_filter:block];
+    return [new copy];
 }
 
 - (void)fh_times:(NSInteger)times
@@ -119,15 +116,9 @@
 }
 
 - (NSArray*)fh_map:(id (^)(id))block {
-    NSCParameterAssert(block);
-    NSMutableArray* new = [NSMutableArray arrayWithCapacity:self.count];
-    [self fh_enum:^(NSInteger idx, id object) {
-        [new addObject:block(object)];
-    }];
+    NSMutableArray* new = [self mutableCopy];
+    [new fh_map:block];
     return [new copy];
-    return [self fh_filterMap:^id(id obj, BOOL *filter) {
-        return block(obj);
-    }];
 }
 
 - (NSArray*)fh_filterMap:(id(^)(id obj,BOOL* filter))block {
@@ -135,9 +126,9 @@
     NSMutableArray* new = [NSMutableArray array];
     BOOL* filter = malloc(sizeof(BOOL));
     [self fh_enum:^(NSInteger idx, id object) {
+        *filter = YES;
         id newObj = block(object,filter);
-        *filter?:[new addObject:newObj];
-        *filter = NO;
+        !*filter?:[new addObject:newObj];
     }];
     free(filter);
     return [new copy];
@@ -155,6 +146,34 @@
 
 - (void)fh_prependObject:(id)anObject {
     !anObject?:[self insertObject:anObject atIndex:0];
+}
+
+- (void)fh_filter:(BOOL(^)(id))block {
+    NSCParameterAssert(block);
+    for (int i=0; i<self.count; i++) {
+        if (!block(self[i])) {
+            [self removeObjectAtIndex:i];
+            i--;
+        }
+    }
+}
+
+- (void)fh_map:(id (^)(id))block {
+    NSCParameterAssert(block);
+    [self fh_enum:^(NSInteger idx, id object) {
+        [self replaceObjectAtIndex:idx withObject:block(object)];
+    }];
+}
+
+- (void)fh_filterMap:(id (^)(id, BOOL *))block {
+    NSCParameterAssert(block);
+    BOOL* filter = malloc(sizeof(BOOL));
+    for (int i =0; i<self.count; i++) {
+        *filter = YES;
+        id newObj = block(self[i],filter);
+        *filter?[self replaceObjectAtIndex:i withObject:newObj]:[self removeObjectAtIndex:i];
+        i--;
+    }
 }
 
 @end
