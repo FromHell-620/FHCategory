@@ -16,6 +16,14 @@
 
 - (instancetype)fh_stringDeleteString:(NSString*)str;
 
+- (NSData*)fh_md5Data;
+
+- (NSString*)fh_md5String;
+
+- (NSData *)fh_sha1Data;
+
+- (NSString *)fh_sha1String;
+
 - (NSData*)fh_dataValue;
 
 - (NSURL*)fh_urlValue;
