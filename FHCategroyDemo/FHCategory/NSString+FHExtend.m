@@ -7,6 +7,7 @@
 //
 
 #import "NSString+FHExtend.h"
+#import "NSData+FHExtend.h"
 
 @implementation NSString (FHExtend)
 
@@ -23,6 +24,22 @@
 
 - (instancetype)fh_stringDeleteString:(NSString*)str {
     return [self stringByReplacingOccurrencesOfString:str withString:@""];
+}
+
+- (NSData*)fh_md5Data {
+    return [[self fh_dataValue] fh_md5Data];
+}
+
+- (NSString*)fh_md5String {
+    return [[self fh_dataValue] fh_md5String];
+}
+
+- (NSData *)fh_sha1Data {
+    return [[self fh_dataValue] fh_sha1Data];
+}
+
+- (NSString *)fh_sha1String {
+    return [[self fh_dataValue] fh_sha1String];
 }
 
 - (NSData*)fh_dataValue {
