@@ -50,6 +50,10 @@
     return [NSURL URLWithString:self];
 }
 
+- (Class)fh_classify {
+    return NSClassFromString(self);
+}
+
 - (NSRange)fh_range {
     return NSMakeRange(0, self.length);
 }

@@ -28,6 +28,8 @@
 
 - (NSURL*)fh_urlValue;
 
+- (Class)fh_classify;
+
 - (NSRange)fh_range;
 
 - (id)fh_json;
