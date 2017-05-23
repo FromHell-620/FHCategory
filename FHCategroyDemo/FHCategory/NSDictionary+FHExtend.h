@@ -8,48 +8,48 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDictionary (FHExtend)
+@interface NSDictionary<KeyType,ObjectType> (FHExtend)
 
-- (id)fh_randomKey;
+- (KeyType)fh_randomKey;
 
-- (id)fh_randomValue;
+- (ObjectType)fh_randomValue;
 
-- (void)fh_enmu:(void(^)(id key,id value))block;
+- (void)fh_enmu:(void(^)(KeyType key,ObjectType value))block;
 
-- (void)fh_timeMatch:(BOOL(^)(id key,id obj))match
+- (void)fh_timeMatch:(BOOL(^)(KeyType key,ObjectType obj))match
                   if:(BOOL(^)())ifx;
 
-- (void)fh_timeMatch:(BOOL (^)(id key,id obj))match
+- (void)fh_timeMatch:(BOOL (^)(KeyType key,ObjectType obj))match
                 else:(BOOL(^)())elsex;
 
-- (void)fh_timeMatch:(BOOL(^)(id key,id obj))match
+- (void)fh_timeMatch:(BOOL(^)(KeyType key,ObjectType obj))match
                   if:(BOOL(^)())ifx
                 else:(BOOL(^)())elsex;
 
-- (void)fh_timesMatch:(BOOL(^)(id key,id obj))match
-                   if:(BOOL(^)(id key,id obj))ifx;
+- (void)fh_timesMatch:(BOOL(^)(KeyType key,ObjectType obj))match
+                   if:(BOOL(^)(KeyType key,ObjectType obj))ifx;
 
-- (void)fh_timesMatch:(BOOL(^)(id key,id obj))match
-                 else:(BOOL(^)(id key,id obj))elsex;
+- (void)fh_timesMatch:(BOOL(^)(KeyType key,ObjectType obj))match
+                 else:(BOOL(^)(KeyType key,ObjectType obj))elsex;
 
-- (void)fh_timesMatch:(BOOL(^)(id key,id obj))match
-                   if:(BOOL(^)(id key,id obj))ifx
-                 else:(BOOL(^)(id key ,id obj))elsex;
+- (void)fh_timesMatch:(BOOL(^)(KeyType key,ObjectType obj))match
+                   if:(BOOL(^)(KeyType key,ObjectType obj))ifx
+                 else:(BOOL(^)(KeyType key ,ObjectType obj))elsex;
 
-- (NSDictionary*)fh_filter:(BOOL(^)(id key,id obj))block;
+- (NSDictionary*)fh_filter:(BOOL(^)(KeyType key,ObjectType obj))block;
 
-- (NSDictionary*)fh_map:(id(^)(id key,id obj))block;
+- (NSDictionary*)fh_map:(id(^)(KeyType key,ObjectType obj))block;
 
-- (NSDictionary*)fh_filterMap:(id(^)(id key,id obj,BOOL* filter))block;
+- (NSDictionary*)fh_filterMap:(id(^)(KeyType key,ObjectType obj,BOOL* filter))block;
 
 @end
 
-@interface NSMutableDictionary (FHExtend)
+@interface NSMutableDictionary<KeyType,ObjectType> (FHExtend)
 
-- (void)fh_filter:(BOOL(^)(id key,id obj))block;
+- (void)fh_filter:(BOOL(^)(KeyType key,ObjectType obj))block;
 
-- (void)fh_map:(id(^)(id key,id obj))block;
+- (void)fh_map:(id(^)(KeyType key,ObjectType obj))block;
 
-- (void)fh_filterMap:(id(^)(id key,id obj,BOOL* filter))block;
+- (void)fh_filterMap:(id(^)(KeyType key,ObjectType obj,BOOL* filter))block;
 
 @end
