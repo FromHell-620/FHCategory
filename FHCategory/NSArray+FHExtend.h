@@ -8,62 +8,66 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSArray (FHExtend)
+@interface NSArray<ObjectType> (FHExtend)
 
-- (id)fh_randomObject;
+- (ObjectType)fh_randomObject;
 
 - (NSData*)fh_jsonDataValue;
 
 - (NSString*)fh_jsonStringValue;
 
-- (NSMutableArray*)fh_mutableValue;
+- (NSMutableArray<ObjectType>*)fh_mutableValue;
 
-- (void)fh_enum:(void(^)(NSInteger idx,id object))block;
+- (void)fh_enum:(void(^)(NSInteger idx,ObjectType object))block;
 
-- (void)fh_enumWithIgnoreValue:(id)v b:(void(^)(NSInteger idx,id object))block;
+- (void)fh_enumWithIgnoreValue:(id)v b:(void(^)(NSInteger idx,ObjectType object))block;
 
-- (NSArray*)fh_filter:(BOOL(^)(id obj))block;
+- (NSArray*)fh_filter:(BOOL(^)(ObjectType obj))block;
 
 - (void)fh_times:(NSInteger)times
-           block:(void (^)(id obj))block;
+           block:(void (^)(ObjectType obj))block;
 
-- (void)fh_timeMatch:(BOOL (^)(id obj))match
+- (void)fh_timeMatch:(BOOL (^)(ObjectType obj))match
                   if:(BOOL(^)())ifx;
 
-- (void)fh_timeMatch:(BOOL (^)(id obj))match
+- (void)fh_timeMatch:(BOOL (^)(ObjectType obj))match
                 else:(BOOL(^)())elsex;
 
-- (void)fh_timeMatch:(BOOL (^)(id obj))match
+- (void)fh_timeMatch:(BOOL (^)(ObjectType obj))match
                   if:(BOOL(^)())ifx
                 else:(BOOL(^)())elsex;
 
-- (void)fh_timesMatch:(BOOL (^)(id obj))match
-                   if:(BOOL(^)(NSInteger idx,id object))ifx;
+- (void)fh_timesMatch:(BOOL (^)(ObjectType obj))match
+                   if:(BOOL(^)(NSInteger idx,ObjectType object))ifx;
 
-- (void)fh_timesMatch:(BOOL (^)(id obj))match
-                 else:(BOOL(^)(NSInteger idx,id object))elsex;
+- (void)fh_timesMatch:(BOOL (^)(ObjectType obj))match
+                 else:(BOOL(^)(NSInteger idx,ObjectType object))elsex;
 
-- (void)fh_timesMatch:(BOOL (^)(id obj))match
-                   if:(BOOL(^)(NSInteger idx,id object))ifx
-                 else:(BOOL(^)(NSInteger idx,id object))elsex;
+- (void)fh_timesMatch:(BOOL (^)(ObjectType obj))match
+                   if:(BOOL(^)(NSInteger idx,ObjectType object))ifx
+                 else:(BOOL(^)(NSInteger idx,ObjectType object))elsex;
 
-- (NSArray*)fh_map:(id(^)(id obj))block;
+- (NSArray<ObjectType> *)fh_map:(id(^)(ObjectType obj))block;
 
-- (NSArray*)fh_filterMap:(id(^)(id obj,BOOL* filter))block;
+- (NSArray<ObjectType> *)fh_maps:(id(^)(NSInteger idx,ObjectType obj))block;
+
+- (NSArray*)fh_filterMap:(id(^)(ObjectType obj,BOOL* filter))block;
 
 @end
 
-@interface NSMutableArray (FHExtend)
+@interface NSMutableArray<ObjectType> (FHExtend)
 
-- (id)fh_pop;
+- (ObjectType)fh_pop;
 
-- (void)fh_prependObject:(id)anObject;
+- (void)fh_prependObject:(ObjectType)anObject;
 
-- (void)fh_filter:(BOOL(^)(id obj))block;
+- (void)fh_filter:(BOOL(^)(ObjectType obj))block;
 
-- (void)fh_map:(id(^)(id obj))block;
+- (void)fh_map:(id(^)(ObjectType obj))block;
 
-- (void)fh_filterMap:(id(^)(id obj,BOOL* filter))block;
+- (void)fh_maps:(id(^)(NSInteger idx,ObjectType obj))block;
+
+- (void)fh_filterMap:(id(^)(ObjectType obj,BOOL* filter))block;
 
 
 @end

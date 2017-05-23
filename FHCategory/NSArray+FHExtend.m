@@ -116,8 +116,14 @@
 }
 
 - (NSArray*)fh_map:(id (^)(id))block {
-    NSMutableArray* new = [self mutableCopy];
+    NSMutableArray* new = [self fh_mutableValue];
     [new fh_map:block];
+    return [new copy];
+}
+
+- (NSArray *)fh_maps:(id (^)(NSInteger, id))block {
+    NSMutableArray *new = [self fh_mutableValue];
+    [new fh_maps:block];
     return [new copy];
 }
 
@@ -162,6 +168,13 @@
     NSCParameterAssert(block);
     [self fh_enum:^(NSInteger idx, id object) {
         [self replaceObjectAtIndex:idx withObject:block(object)];
+    }];
+}
+
+- (void)fh_maps:(id (^)(NSInteger, id))block {
+    NSCParameterAssert(block);
+    [self fh_enum:^(NSInteger idx, id object) {
+        [self replaceObjectAtIndex:idx withObject:block(idx,object)];
     }];
 }
 

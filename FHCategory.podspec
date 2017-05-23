@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "FHCategory"
-  s.version      = "0.0.9"
+  s.version      = "0.0.10"
   s.summary      = "category."
   s.homepage     = "https://github.com/FromHell-620/FHCategory"
   s.license      = "MIT"
