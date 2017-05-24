@@ -22,6 +22,8 @@
 
 - (void)fh_enumWithIgnoreValue:(id)v b:(void(^)(NSInteger idx,ObjectType object))block;
 
+- (NSArray<NSArray<ObjectType> *> *)fh_groupingWithCount:(NSInteger)count;
+
 - (NSArray*)fh_filter:(BOOL(^)(ObjectType obj))block;
 
 - (void)fh_times:(NSInteger)times

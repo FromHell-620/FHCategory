@@ -45,6 +45,19 @@
     }];
 }
 
+- (NSArray *)fh_groupingWithCount:(NSInteger)count {
+    NSMutableArray *new = [NSMutableArray array];
+    [self fh_enum:^(NSInteger idx, id object) {
+        if (idx % count == 0) {
+            NSMutableArray *sub_new = [NSMutableArray array];
+            [new  addObject:sub_new];
+        }
+        NSMutableArray *sub_new = [new objectAtIndex:idx/count];
+        [sub_new addObject:object];
+    }];
+    return [new copy];
+}
+
 - (NSArray*)fh_filter:(BOOL(^)(id obj))block {
     NSMutableArray* new = self.fh_mutableValue;
     [new fh_filter:block];
