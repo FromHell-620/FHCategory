@@ -16,18 +16,18 @@
     return [self objectAtIndex:[NSNumber fh_randomNumber:self.count-1].integerValue];
 }
 
-- (NSData*)fh_jsonDataValue {
+- (NSData *)fh_jsonDataValue {
     if ([NSJSONSerialization isValidJSONObject:self]) {
         return [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:nil];
     }
     return nil;
 }
 
-- (NSString*)fh_jsonStringValue {
+- (NSString *)fh_jsonStringValue {
     return [[self fh_jsonDataValue] fh_stringValue];
 }
 
-- (NSMutableArray*)fh_mutableValue {
+- (NSMutableArray *)fh_mutableValue {
     return [NSMutableArray arrayWithArray:self];
 }
 
@@ -58,16 +58,25 @@
     return [new copy];
 }
 
-- (NSArray*)fh_filter:(BOOL(^)(id obj))block {
-    NSMutableArray* new = self.fh_mutableValue;
+- (NSArray *)fh_filter:(BOOL(^)(id obj))block {
+    NSMutableArray *new = self.fh_mutableValue;
     [new fh_filter:block];
     return [new copy];
 }
 
-- (void)fh_times:(NSInteger)times
+- (void)fh_time:(NSInteger)times
            block:(void (^)(id obj))block {
+    NSCParameterAssert(block);
+    [self fh_times:times block:^(id obj, NSInteger idx) {
+        block(obj);
+    }];
+}
+
+- (void)fh_times:(NSInteger)times
+           block:(void(^)(id obj,NSInteger idx))block {
+    NSCParameterAssert(block);
     [@(times) fh_times:^(NSInteger idx) {
-        if (idx < self.count) block(self[idx]);
+        if (idx < self.count) block(self[idx],idx);
     }];
 }
 
@@ -128,8 +137,8 @@
     }];
 }
 
-- (NSArray*)fh_map:(id (^)(id))block {
-    NSMutableArray* new = [self fh_mutableValue];
+- (NSArray *)fh_map:(id (^)(id))block {
+    NSMutableArray *new = [self fh_mutableValue];
     [new fh_map:block];
     return [new copy];
 }
@@ -140,7 +149,7 @@
     return [new copy];
 }
 
-- (NSArray*)fh_filterMap:(id(^)(id obj,BOOL* filter))block {
+- (NSArray *)fh_filterMap:(id(^)(id obj,BOOL *filter))block {
     NSCParameterAssert(block);
     return [self fh_filterMaps:^id(id obj, BOOL *filter, NSInteger idx) {
         return block(obj,filter);
@@ -149,7 +158,7 @@
 
 - (NSArray *)fh_filterMaps:(id (^)(id, BOOL *, NSInteger))block {
     NSCParameterAssert(block);
-    NSMutableArray* new = [NSMutableArray array];
+    NSMutableArray *new = [NSMutableArray array];
     BOOL* filter = malloc(sizeof(BOOL));
     [self fh_enum:^(NSInteger idx, id object) {
         *filter = YES;
@@ -158,6 +167,23 @@
     }];
     free(filter);
     return [new copy];
+}
+
+- (NSArray *)fh_reversalify {
+    NSMutableArray *new = [self fh_mutableValue];
+    [new fh_reversalify];
+    return [new copy];
+}
+
+- (NSArray<NSNumber *> *)fh_indexesInOther:(NSArray *)other
+                                matchBlock:(BOOL(^)(id,id))matchBlock {
+    return [self fh_map:^id(id obj) {
+        __block NSInteger index = -1;
+        [self fh_enum:^(NSInteger idx, id object) {
+            if (matchBlock(obj,object)) {index = idx;return;};
+        }];
+        return @(index);
+    }];
 }
 
 @end
@@ -214,6 +240,18 @@
         *filter?[self replaceObjectAtIndex:i withObject:newObj]:^{[self removeObjectAtIndex:i];i--;}();
     }
     free(filter);
+}
+
+- (void)fh_reversalify {
+    [self fh_times:self.count/2 block:^(id obj, NSInteger idx) {
+        [self exchangeObjectAtIndex:idx withObjectAtIndex:self.count-idx-1];
+    }];
+}
+
+- (NSArray<NSNumber *> *)fh_indexesInOther:(NSArray *)other matchBlock:(BOOL (^)(id, id))matchBlock {
+    NSCParameterAssert(matchBlock);
+    NSArray *new = [self copy];
+    return [new fh_indexesInOther:other matchBlock:matchBlock];
 }
 
 @end

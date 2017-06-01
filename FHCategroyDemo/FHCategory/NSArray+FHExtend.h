@@ -12,11 +12,11 @@
 
 - (ObjectType)fh_randomObject;
 
-- (NSData*)fh_jsonDataValue;
+- (NSData *)fh_jsonDataValue;
 
-- (NSString*)fh_jsonStringValue;
+- (NSString *)fh_jsonStringValue;
 
-- (NSMutableArray<ObjectType>*)fh_mutableValue;
+- (NSMutableArray<ObjectType> *)fh_mutableValue;
 
 - (void)fh_enum:(void(^)(NSInteger idx,ObjectType object))block;
 
@@ -24,10 +24,13 @@
 
 - (NSArray<NSArray<ObjectType> *> *)fh_groupingWithCount:(NSInteger)count;
 
-- (NSArray*)fh_filter:(BOOL(^)(ObjectType obj))block;
+- (NSArray *)fh_filter:(BOOL(^)(ObjectType obj))block;
+
+- (void)fh_time:(NSInteger)times
+           block:(void (^)(ObjectType obj))block;
 
 - (void)fh_times:(NSInteger)times
-           block:(void (^)(ObjectType obj))block;
+           block:(void(^)(ObjectType obj,NSInteger idx))block;
 
 - (void)fh_timeMatch:(BOOL (^)(ObjectType obj))match
                   if:(BOOL(^)())ifx;
@@ -53,9 +56,14 @@
 
 - (NSArray *)fh_maps:(id(^)(NSInteger idx,ObjectType obj))block;
 
-- (NSArray*)fh_filterMap:(id(^)(ObjectType obj,BOOL* filter))block;
+- (NSArray *)fh_filterMap:(id(^)(ObjectType obj,BOOL* filter))block;
 
 - (NSArray *)fh_filterMaps:(id(^)(ObjectType obj,BOOL *filter,NSInteger idx))block;
+
+- (NSArray *)fh_reversalify;
+
+- (NSArray<NSNumber *> *)fh_indexesInOther:(NSArray *)other
+                                matchBlock:(BOOL(^)(ObjectType obj,id object))matchBlock;
 
 @end
 
@@ -74,5 +82,10 @@
 - (void)fh_filterMap:(id(^)(ObjectType obj,BOOL* filter))block;
 
 - (void)fh_filterMaps:(id(^)(ObjectType obj,BOOL *filter,NSInteger idx))block;
+
+- (void)fh_reversalify;
+
+- (NSArray<NSNumber *> *)fh_indexesInOther:(NSArray *)other
+                                matchBlock:(BOOL(^)(ObjectType obj,id object))matchBlock;
 
 @end
