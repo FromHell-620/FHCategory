@@ -49,11 +49,13 @@
                    if:(BOOL(^)(NSInteger idx,ObjectType object))ifx
                  else:(BOOL(^)(NSInteger idx,ObjectType object))elsex;
 
-- (NSArray<ObjectType> *)fh_map:(id(^)(ObjectType obj))block;
+- (NSArray *)fh_map:(id(^)(ObjectType obj))block;
 
-- (NSArray<ObjectType> *)fh_maps:(id(^)(NSInteger idx,ObjectType obj))block;
+- (NSArray *)fh_maps:(id(^)(NSInteger idx,ObjectType obj))block;
 
 - (NSArray*)fh_filterMap:(id(^)(ObjectType obj,BOOL* filter))block;
+
+- (NSArray *)fh_filterMaps:(id(^)(ObjectType obj,BOOL *filter,NSInteger idx))block;
 
 @end
 
@@ -71,5 +73,6 @@
 
 - (void)fh_filterMap:(id(^)(ObjectType obj,BOOL* filter))block;
 
+- (void)fh_filterMaps:(id(^)(ObjectType obj,BOOL *filter,NSInteger idx))block;
 
 @end
