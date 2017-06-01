@@ -55,6 +55,8 @@
 
 - (NSArray*)fh_filterMap:(id(^)(ObjectType obj,BOOL* filter))block;
 
+- (NSArray *)fh_filterMaps:(id(^)(ObjectType obj,BOOL *filter,NSInteger idx))block;
+
 @end
 
 @interface NSMutableArray<ObjectType> (FHExtend)
@@ -70,5 +72,7 @@
 - (void)fh_maps:(id(^)(NSInteger idx,ObjectType obj))block;
 
 - (void)fh_filterMap:(id(^)(ObjectType obj,BOOL* filter))block;
+
+- (void)fh_filterMaps:(id(^)(ObjectType obj,BOOL *filter,NSInteger idx))block;
 
 @end

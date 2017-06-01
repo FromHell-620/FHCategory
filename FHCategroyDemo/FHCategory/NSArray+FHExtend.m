@@ -142,11 +142,18 @@
 
 - (NSArray*)fh_filterMap:(id(^)(id obj,BOOL* filter))block {
     NSCParameterAssert(block);
+    return [self fh_filterMaps:^id(id obj, BOOL *filter, NSInteger idx) {
+        return block(obj,filter);
+    }];
+}
+
+- (NSArray *)fh_filterMaps:(id (^)(id, BOOL *, NSInteger))block {
+    NSCParameterAssert(block);
     NSMutableArray* new = [NSMutableArray array];
     BOOL* filter = malloc(sizeof(BOOL));
     [self fh_enum:^(NSInteger idx, id object) {
         *filter = YES;
-        id newObj = block(object,filter);
+        id newObj = block(object,filter,idx);
         !*filter?:[new addObject:newObj];
     }];
     free(filter);
@@ -193,12 +200,18 @@
 
 - (void)fh_filterMap:(id (^)(id, BOOL *))block {
     NSCParameterAssert(block);
-    BOOL* filter = malloc(sizeof(BOOL));
-    for (int i =0; i<self.count; i++) {
+    [self fh_filterMaps:^id(id obj, BOOL *filter, NSInteger idx) {
+        return block(obj,filter);
+    }];
+}
+
+- (void)fh_filterMaps:(id (^)(id, BOOL *, NSInteger))block {
+    NSCParameterAssert(block);
+    BOOL *filter = malloc(sizeof(BOOL));
+    for (__block int i=0; i<self.count; i++) {
         *filter = YES;
-        id newObj = block(self[i],filter);
-        *filter?[self replaceObjectAtIndex:i withObject:newObj]:[self removeObjectAtIndex:i];
-        i--;
+        id newObj = block(self[i],filter,i);
+        *filter?[self replaceObjectAtIndex:i withObject:newObj]:^{[self removeObjectAtIndex:i];i--;}();
     }
     free(filter);
 }
