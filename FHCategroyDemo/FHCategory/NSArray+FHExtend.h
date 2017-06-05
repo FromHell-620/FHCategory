@@ -18,6 +18,12 @@
 
 - (NSMutableArray<ObjectType> *)fh_mutableValue;
 
+- (NSArray<ObjectType> *)fh_addObject:(ObjectType)obj;
+
+- (NSArray<ObjectType> *)fh_addObjectsFromArray:(NSArray<ObjectType> *)arr;
+
+- (NSArray<ObjectType> *)fh_prependObject:(ObjectType)obj;
+
 - (void)fh_enum:(void(^)(NSInteger idx,ObjectType object))block;
 
 - (void)fh_enumWithIgnoreValue:(id)v b:(void(^)(NSInteger idx,ObjectType object))block;

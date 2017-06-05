@@ -31,6 +31,25 @@
     return [NSMutableArray arrayWithArray:self];
 }
 
+- (NSArray *)fh_addObject:(id)obj {
+    NSParameterAssert(obj);
+    return [self fh_addObjectsFromArray:@[obj]];
+}
+
+- (NSArray *)fh_addObjectsFromArray:(NSArray *)arr {
+    if (arr == nil || arr.count == 0) return self;
+    NSMutableArray *new = [self fh_mutableValue];
+    [new addObjectsFromArray:arr];
+    return [new copy];
+}
+
+- (NSArray *)fh_prependObject:(id)obj {
+    NSParameterAssert(obj);
+    NSMutableArray *new = [self fh_mutableValue];
+    [new insertObject:obj atIndex:0];
+    return [new copy];
+}
+
 - (void)fh_enum:(void(^)(NSInteger idx,id object))block {
     NSParameterAssert(block);
     [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
