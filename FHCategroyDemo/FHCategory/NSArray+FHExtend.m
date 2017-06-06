@@ -50,6 +50,15 @@
     return [new copy];
 }
 
+- (NSArray *)fh_prependObjects:(NSArray *)objs {
+    if (objs == nil || objs.count == 0) return self;
+    __block NSArray *result = self;
+    [objs enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        result = [result fh_prependObject:obj];
+    }];
+    return result;
+}
+
 - (void)fh_enum:(void(^)(NSInteger idx,id object))block {
     NSParameterAssert(block);
     [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

@@ -24,6 +24,8 @@
 
 - (NSArray<ObjectType> *)fh_prependObject:(ObjectType)obj;
 
+- (NSArray<ObjectType> *)fh_prependObjects:(NSArray<ObjectType> *)objs;
+
 - (void)fh_enum:(void(^)(NSInteger idx,ObjectType object))block;
 
 - (void)fh_enumWithIgnoreValue:(id)v b:(void(^)(NSInteger idx,ObjectType object))block;
