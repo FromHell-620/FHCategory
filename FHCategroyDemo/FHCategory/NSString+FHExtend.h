@@ -35,3 +35,9 @@
 - (id)fh_json;
 
 @end
+
+@interface NSMutableString (FHExtend)
+
+- (void)fh_deleteLast;
+
+@end
