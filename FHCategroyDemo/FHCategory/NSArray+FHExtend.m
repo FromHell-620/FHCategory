@@ -9,6 +9,7 @@
 #import "NSArray+FHExtend.h"
 #import "NSNumber+FHExtend.h"
 #import "NSData+FHExtend.h"
+#import "NSString+FHExtend.h"
 
 @implementation NSArray (FHExtend)
 
@@ -203,6 +204,19 @@
         }];
         return @(index);
     }];
+}
+
+- (NSString *)fh_stringify {
+    return [self fh_stringifyWithSeparator:@","];
+}
+
+- (NSString *)fh_stringifyWithSeparator:(NSString *)str {
+    NSMutableString *result = [NSMutableString string];
+    [self fh_enum:^(NSInteger idx, id object) {
+        [result appendFormat:@"%@%@",object,str];
+    }];
+    [result fh_deleteLast];
+    return [result copy];
 }
 
 @end

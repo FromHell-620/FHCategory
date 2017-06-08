@@ -71,6 +71,10 @@
 - (NSArray<NSNumber *> *)fh_indexesInOther:(NSArray *)other
                                 matchBlock:(BOOL(^)(ObjectType obj,id object))matchBlock;
 
+- (NSString *)fh_stringify;
+
+- (NSString *)fh_stringifyWithSeparator:(NSString *)str;
+
 @end
 
 @interface NSMutableArray<ObjectType> (FHExtend)
