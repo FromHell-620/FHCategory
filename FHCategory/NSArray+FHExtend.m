@@ -208,7 +208,7 @@
                                 matchBlock:(BOOL(^)(id,id))matchBlock {
     return [self fh_map:^id(id obj) {
         __block NSInteger index = -1;
-        [self fh_enum:^(NSInteger idx, id object) {
+        [other fh_enum:^(NSInteger idx, id object) {
             if (matchBlock(obj,object)) {index = idx;return;};
         }];
         return @(index);
