@@ -77,6 +77,10 @@
 
 - (NSString *)fh_stringifyWithSeparator:(NSString *)str;
 
+- (NSArray<ObjectType> *)fh_offset:(NSInteger)offset;
+
+- (NSArray<ObjectType> *)fh_subArrWithRange:(NSRange)aRange;
+
 @end
 
 @interface NSMutableArray<ObjectType> (FHExtend)

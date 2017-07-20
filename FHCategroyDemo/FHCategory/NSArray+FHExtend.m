@@ -228,6 +228,23 @@
     return [result copy];
 }
 
+- (NSArray *)fh_offset:(NSInteger)offset {
+    if (offset >= self.count) return nil;
+    return [self fh_subArrWithRange:NSMakeRange(offset, self.count-offset)];
+}
+
+- (NSArray *)fh_subArrWithRange:(NSRange)aRange {
+    if (aRange.location >= self.count || aRange.location + aRange.length > self.count) return nil;
+    NSMutableArray *result = [NSMutableArray array];
+    [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (idx >= aRange.location && idx < aRange.location + aRange.length)
+            [result addObject:obj];
+        else if (idx >= aRange.location + aRange.length)
+            *stop = YES;
+    }];
+    return [result copy];
+}
+
 @end
 
 @implementation NSMutableArray (FHExtend)
