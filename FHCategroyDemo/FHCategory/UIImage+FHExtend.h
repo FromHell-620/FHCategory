@@ -28,4 +28,8 @@
 
 - (UIImage*)fh_imageByCropRect:(CGRect)rect;
 
+- (UIImage *)fh_imageResizeing:(UIEdgeInsets)insets;
+
+- (UIImage *)fh_imageResizeing:(UIEdgeInsets)insets mode:(UIImageResizingMode)mode;
+
 @end

@@ -68,4 +68,12 @@
     return new_image;
 }
 
+- (UIImage *)fh_imageResizeing:(UIEdgeInsets)insets {
+    return [self fh_imageResizeing:insets mode:UIImageResizingModeStretch];
+}
+
+- (UIImage *)fh_imageResizeing:(UIEdgeInsets)insets mode:(UIImageResizingMode)mode {
+    return [self resizableImageWithCapInsets:insets resizingMode:mode];
+}
+
 @end
