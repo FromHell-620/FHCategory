@@ -20,6 +20,7 @@
 		C99158E21EB0E22900967B11 /* NSArray+FHExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = C99158E11EB0E22900967B11 /* NSArray+FHExtend.m */; };
 		C99158E61EB502B700967B11 /* NSDictionary+FHExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = C99158E51EB502B700967B11 /* NSDictionary+FHExtend.m */; };
 		C99D0FCA1EB68AAB002D887D /* UIImage+FHExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = C99D0FC91EB68AAB002D887D /* UIImage+FHExtend.m */; };
+		C99E59D21F30C7EB00E44296 /* UIColor+FHExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = C99E59D11F30C7EB00E44296 /* UIColor+FHExtend.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,8 @@
 		C99158E51EB502B700967B11 /* NSDictionary+FHExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+FHExtend.m"; sourceTree = "<group>"; };
 		C99D0FC81EB68AAB002D887D /* UIImage+FHExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FHExtend.h"; sourceTree = "<group>"; };
 		C99D0FC91EB68AAB002D887D /* UIImage+FHExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FHExtend.m"; sourceTree = "<group>"; };
+		C99E59D01F30C7EB00E44296 /* UIColor+FHExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FHExtend.h"; sourceTree = "<group>"; };
+		C99E59D11F30C7EB00E44296 /* UIColor+FHExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FHExtend.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				73A8E5A71EB1C4CE00DBF791 /* UIView+FHExtend.m */,
 				C99D0FC81EB68AAB002D887D /* UIImage+FHExtend.h */,
 				C99D0FC91EB68AAB002D887D /* UIImage+FHExtend.m */,
+				C99E59D01F30C7EB00E44296 /* UIColor+FHExtend.h */,
+				C99E59D11F30C7EB00E44296 /* UIColor+FHExtend.m */,
 				C99158E31EB0EFF000967B11 /* FHCategory.h */,
 			);
 			path = FHCategory;
@@ -202,6 +207,7 @@
 				C99D0FCA1EB68AAB002D887D /* UIImage+FHExtend.m in Sources */,
 				C99158D91EB0DBA000967B11 /* NSNumber+FHExtend.m in Sources */,
 				C99158C41EB0DB0300967B11 /* AppDelegate.m in Sources */,
+				C99E59D21F30C7EB00E44296 /* UIColor+FHExtend.m in Sources */,
 				C99158DC1EB0DD0F00967B11 /* NSString+FHExtend.m in Sources */,
 				C99158DF1EB0DFF600967B11 /* NSData+FHExtend.m in Sources */,
 				73A8E5A81EB1C4CE00DBF791 /* UIView+FHExtend.m in Sources */,
