@@ -36,7 +36,7 @@
                    if:(BOOL(^)(KeyType key,ObjectType obj))ifx
                  else:(BOOL(^)(KeyType key ,ObjectType obj))elsex;
 
-- (NSDictionary*)fh_filter:(BOOL(^)(KeyType key,ObjectType obj))block;
+- (NSDictionary<KeyType,ObjectType>*)fh_filter:(BOOL(^)(KeyType key,ObjectType obj))block;
 
 - (NSDictionary*)fh_map:(id(^)(KeyType key,ObjectType obj))block;
 

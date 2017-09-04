@@ -28,11 +28,11 @@
 
 - (void)fh_enum:(void(^)(NSInteger idx,ObjectType object))block;
 
-- (void)fh_enumWithIgnoreValue:(id)v b:(void(^)(NSInteger idx,ObjectType object))block;
+- (void)fh_enumWithIgnoreValue:(ObjectType)v b:(void(^)(NSInteger idx,ObjectType object))block;
 
 - (NSArray<NSArray<ObjectType> *> *)fh_groupingWithCount:(NSInteger)count;
 
-- (NSArray *)fh_filter:(BOOL(^)(ObjectType obj))block;
+- (NSArray<ObjectType> *)fh_filter:(BOOL(^)(ObjectType obj))block;
 
 - (void)fh_time:(NSInteger)times
            block:(void (^)(ObjectType obj))block;
@@ -68,7 +68,7 @@
 
 - (NSArray *)fh_filterMaps:(id(^)(ObjectType obj,BOOL *filter,NSInteger idx))block;
 
-- (NSArray *)fh_reversalify;
+- (NSArray<ObjectType> *)fh_reversalify;
 
 - (NSArray<NSNumber *> *)fh_indexesInOther:(NSArray *)other
                                 matchBlock:(BOOL(^)(ObjectType obj,id object))matchBlock;
