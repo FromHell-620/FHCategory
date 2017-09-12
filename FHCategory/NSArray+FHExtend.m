@@ -60,6 +60,13 @@
     return result;
 }
 
+- (NSArray *)fh_insertObject:(id)obj atIndex:(NSInteger)idx {
+    NSParameterAssert(obj);
+    NSMutableArray *new = [NSMutableArray arrayWithArray:self];
+    [new insertObject:obj atIndex:idx];
+    return [new copy];
+}
+
 - (void)fh_enum:(void(^)(NSInteger idx,id object))block {
     NSParameterAssert(block);
     [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -164,6 +171,20 @@
     [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         *stop = match(obj)?ifx(idx,obj):elsex(idx,obj);
     }];
+}
+
+- (void)fh_timesMatch:(BOOL (^)(id))match
+                   if:(BOOL (^)(NSInteger, id))ifx
+              endElse:(dispatch_block_t)endBlock {
+    NSCParameterAssert(match);
+    __block BOOL matched = NO;
+    [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        matched = *stop = match(obj);
+        if (matched) ifx(idx,obj);
+    }];
+    if (matched == NO) {
+        endBlock();
+    }
 }
 
 - (NSArray *)fh_map:(id (^)(id))block {

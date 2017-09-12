@@ -26,6 +26,8 @@
 
 - (NSArray<ObjectType> *)fh_prependObjects:(NSArray<ObjectType> *)objs;
 
+- (NSArray<ObjectType> *)fh_insertObject:(ObjectType)obj atIndex:(NSInteger)idx;
+
 - (void)fh_enum:(void(^)(NSInteger idx,ObjectType object))block;
 
 - (void)fh_enumWithIgnoreValue:(ObjectType)v b:(void(^)(NSInteger idx,ObjectType object))block;
@@ -59,6 +61,10 @@
 - (void)fh_timesMatch:(BOOL (^)(ObjectType obj))match
                    if:(BOOL(^)(NSInteger idx,ObjectType object))ifx
                  else:(BOOL(^)(NSInteger idx,ObjectType object))elsex;
+
+- (void)fh_timesMatch:(BOOL (^)(ObjectType obj))match
+                   if:(BOOL (^)(NSInteger idx,ObjectType object))ifx
+              endElse:(dispatch_block_t)endBlock;
 
 - (NSArray *)fh_map:(id(^)(ObjectType obj))block;
 
