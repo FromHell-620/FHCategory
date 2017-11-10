@@ -15,6 +15,7 @@
 #import "NSArray+FHExtend.h"
 #import "NSDictionary+FHExtend.h"
 #import "UIView+FHExtend.h"
+#import "UIButton+FHExtend.h"
 #import "UIImage+FHExtend.h"
 #import "UIColor+FHExtend.h"
 

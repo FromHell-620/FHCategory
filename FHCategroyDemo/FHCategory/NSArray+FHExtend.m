@@ -179,7 +179,7 @@
     NSCParameterAssert(match);
     __block BOOL matched = NO;
     [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        matched = *stop = match(obj);
+        matched = (*stop) = match(obj);
         if (matched) ifx(idx,obj);
     }];
     if (matched == NO) {
