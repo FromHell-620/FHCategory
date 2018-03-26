@@ -266,6 +266,17 @@
     return [result copy];
 }
 
+- (id)fh_findObject:(BOOL (^)(id))match {
+    __block id obj = nil;
+    [self fh_timesMatch:^BOOL(id obj) {
+        return match(obj);
+    } if:^BOOL(NSInteger idx, id object) {
+        obj = object;
+        return YES;
+    }];
+    return obj;
+}
+
 @end
 
 @implementation NSMutableArray (FHExtend)

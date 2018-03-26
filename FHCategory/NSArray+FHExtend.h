@@ -87,6 +87,8 @@
 
 - (NSArray<ObjectType> *)fh_subArrWithRange:(NSRange)aRange;
 
+- (ObjectType)fh_findObject:(BOOL(^)(ObjectType obj))match;
+
 @end
 
 @interface NSMutableArray<ObjectType> (FHExtend)
