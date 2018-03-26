@@ -17,14 +17,14 @@
 - (void)fh_enmu:(void(^)(KeyType key,ObjectType value))block;
 
 - (void)fh_timeMatch:(BOOL(^)(KeyType key,ObjectType obj))match
-                  if:(BOOL(^)())ifx;
+                  if:(BOOL(^)(void))ifx;
 
 - (void)fh_timeMatch:(BOOL (^)(KeyType key,ObjectType obj))match
-                else:(BOOL(^)())elsex;
+                else:(BOOL(^)(void))elsex;
 
 - (void)fh_timeMatch:(BOOL(^)(KeyType key,ObjectType obj))match
-                  if:(BOOL(^)())ifx
-                else:(BOOL(^)())elsex;
+                  if:(BOOL(^)(void))ifx
+                else:(BOOL(^)(void))elsex;
 
 - (void)fh_timesMatch:(BOOL(^)(KeyType key,ObjectType obj))match
                    if:(BOOL(^)(KeyType key,ObjectType obj))ifx;

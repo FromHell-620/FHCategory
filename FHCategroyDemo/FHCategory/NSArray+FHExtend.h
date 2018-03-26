@@ -43,14 +43,14 @@
            block:(void(^)(ObjectType obj,NSInteger idx))block;
 
 - (void)fh_timeMatch:(BOOL (^)(ObjectType obj))match
-                  if:(BOOL(^)())ifx;
+                  if:(BOOL(^)(void))ifx;
 
 - (void)fh_timeMatch:(BOOL (^)(ObjectType obj))match
-                else:(BOOL(^)())elsex;
+                else:(BOOL(^)(void))elsex;
 
 - (void)fh_timeMatch:(BOOL (^)(ObjectType obj))match
-                  if:(BOOL(^)())ifx
-                else:(BOOL(^)())elsex;
+                  if:(BOOL(^)(void))ifx
+                else:(BOOL(^)(void))elsex;
 
 - (void)fh_timesMatch:(BOOL (^)(ObjectType obj))match
                    if:(BOOL(^)(NSInteger idx,ObjectType object))ifx;

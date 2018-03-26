@@ -27,22 +27,22 @@
 }
 
 - (void)fh_timeMatch:(BOOL(^)(id key,id obj))match
-                  if:(BOOL(^)())ifx {
+                  if:(BOOL(^)(void))ifx {
     [self fh_timeMatch:match if:ifx else:^BOOL{
         return NO;
     }];
 }
 
 - (void)fh_timeMatch:(BOOL (^)(id key,id obj))match
-                else:(BOOL(^)())elsex {
+                else:(BOOL(^)(void))elsex {
     [self fh_timeMatch:match if:^BOOL{
         return NO;
     } else:elsex];
 }
 
 - (void)fh_timeMatch:(BOOL(^)(id key,id obj))match
-                  if:(BOOL(^)())ifx
-                else:(BOOL(^)())elsex {
+                  if:(BOOL(^)(void))ifx
+                else:(BOOL(^)(void))elsex {
     [self fh_timesMatch:match if:^BOOL(id key, id obj) {
         return ifx();
     } else:^BOOL(id key, id obj) {
