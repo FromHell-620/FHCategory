@@ -98,7 +98,7 @@
     if (mod == 0) return nil;
     NSMutableArray *new = [NSMutableArray array];
     [self fh_enum:^(NSInteger idx, id object) {
-        NSMutableArray *sub_new = [new objectAtIndex:idx % mod];
+        NSMutableArray *sub_new = new.count <= idx % mod ? nil : [new objectAtIndex:idx % mod];
         if (sub_new == nil) {
             sub_new = [NSMutableArray array];
             [new addObject:sub_new];
