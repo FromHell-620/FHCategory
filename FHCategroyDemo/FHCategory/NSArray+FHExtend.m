@@ -94,6 +94,20 @@
     return [new copy];
 }
 
+- (NSArray *)fh_groupingWithModNumber:(NSInteger)mod {
+    if (mod == 0) return nil;
+    NSMutableArray *new = [NSMutableArray array];
+    [self fh_enum:^(NSInteger idx, id object) {
+        NSMutableArray *sub_new = [new objectAtIndex:idx % mod];
+        if (sub_new == nil) {
+            sub_new = [NSMutableArray array];
+            [new addObject:sub_new];
+        }
+        [sub_new addObject:object];
+    }];
+    return new.copy;
+}
+
 - (NSArray *)fh_filter:(BOOL(^)(id obj))block {
     NSMutableArray *new = self.fh_mutableValue;
     [new fh_filter:block];

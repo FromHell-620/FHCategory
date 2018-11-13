@@ -34,6 +34,8 @@
 
 - (NSArray<NSArray<ObjectType> *> *)fh_groupingWithCount:(NSInteger)count;
 
+- (NSArray<NSArray<ObjectType> *> *)fh_groupingWithModNumber:(NSInteger)mod;
+
 - (NSArray<ObjectType> *)fh_filter:(BOOL(^)(ObjectType obj))block;
 
 - (void)fh_time:(NSInteger)times
