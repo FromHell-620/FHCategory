@@ -12,6 +12,8 @@
 
 - (ObjectType)fh_randomObject;
 
+- (NSArray<NSString *> *)fh_randomArrayWithCount:(NSUInteger)count;
+
 - (NSData *)fh_jsonDataValue;
 
 - (NSString *)fh_jsonStringValue;

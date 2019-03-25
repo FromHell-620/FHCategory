@@ -17,6 +17,20 @@
     return [self objectAtIndex:[NSNumber fh_randomNumber:self.count-1].integerValue];
 }
 
+- (NSArray<NSString *> *)fh_randomArrayWithCount:(NSUInteger)count {
+    if (count == 0) {
+        return NSArray.new;
+    }
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:(NSUInteger)count*1.75];
+    do {
+        id obj = [self fh_randomObject];
+        if (![result containsObject:obj]) {
+            [result addObject:obj];
+        }
+    } while (result.count <= count - 1);
+    return [result copy];
+}
+
 - (NSData *)fh_jsonDataValue {
     if ([NSJSONSerialization isValidJSONObject:self]) {
         return [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:nil];
