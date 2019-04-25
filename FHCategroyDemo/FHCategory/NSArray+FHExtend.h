@@ -18,7 +18,7 @@
 
 - (NSString *)fh_jsonStringValue;
 
-- (NSArray<ObjectType> *)unionArray;
+- (NSArray<ObjectType> *)fh_unionArray;
 
 - (NSMutableArray<ObjectType> *)fh_mutableValue;
 

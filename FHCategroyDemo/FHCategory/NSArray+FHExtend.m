@@ -42,7 +42,7 @@
     return [[self fh_jsonDataValue] fh_stringValue];
 }
 
-- (NSArray *)unionArray {
+- (NSArray *)fh_unionArray {
     return [self valueForKeyPath:@"@distinctUnionOfObjects.self"];
 }
 
