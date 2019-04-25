@@ -12,11 +12,13 @@
 
 - (ObjectType)fh_randomObject;
 
-- (NSArray<NSString *> *)fh_randomArrayWithCount:(NSUInteger)count;
+- (NSArray<ObjectType> *)fh_randomArrayWithCount:(NSUInteger)count;
 
 - (NSData *)fh_jsonDataValue;
 
 - (NSString *)fh_jsonStringValue;
+
+- (NSArray<ObjectType> *)unionArray;
 
 - (NSMutableArray<ObjectType> *)fh_mutableValue;
 
