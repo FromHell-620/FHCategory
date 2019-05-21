@@ -146,4 +146,8 @@
     return img;
 }
 
+- (UIImage *)fh_originImage {
+    return [self imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+}
+
 @end

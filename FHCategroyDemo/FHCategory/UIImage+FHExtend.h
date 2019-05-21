@@ -34,4 +34,6 @@
 
 - (UIImage*)fh_fixOrientation;
 
+- (UIImage *)fh_originImage;
+
 @end
