@@ -277,7 +277,7 @@
     [self fh_enum:^(NSInteger idx, id object) {
         [result appendFormat:@"%@%@",object,str];
     }];
-    [result fh_deleteLast];
+    [result fh_deleteLastWithLength:str.length];
     return [result copy];
 }
 
