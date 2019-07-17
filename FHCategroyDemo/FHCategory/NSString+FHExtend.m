@@ -67,7 +67,11 @@
 @implementation NSMutableString (FHExtend)
 
 - (void)fh_deleteLast {
-    self.length<=0?:[self deleteCharactersInRange:NSMakeRange(self.length-1, 1)];
+    [self fh_deleteLastWithLength:1];
+}
+
+- (void)fh_deleteLastWithLength:(NSInteger)count {
+    self.length <= count - 1 ?: [self deleteCharactersInRange:NSMakeRange(self.length - count, count)];
 }
 
 @end

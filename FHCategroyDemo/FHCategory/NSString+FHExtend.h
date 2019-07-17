@@ -40,4 +40,6 @@
 
 - (void)fh_deleteLast;
 
+- (void)fh_deleteLastWithLength:(NSInteger)count;
+
 @end
